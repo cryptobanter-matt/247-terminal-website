@@ -1,0 +1,158 @@
+---
+const features = [
+  {
+    icon: 'bolt',
+    title: 'Millisecond News Delivery',
+    description: 'Get breaking news faster than anyone else. Our infrastructure delivers market-moving news in under 50ms.',
+  },
+  {
+    icon: 'click',
+    title: 'One-Click Execution',
+    description: 'Execute trades instantly across multiple exchanges with a single click. No more switching between platforms.',
+  },
+  {
+    icon: 'exchange',
+    title: 'Multi-Exchange Support',
+    description: 'Connect to Bybit, Binance, Hyperliquid, and Blofin. Trade wherever the opportunity is.',
+  },
+  {
+    icon: 'filter',
+    title: 'Smart News Filtering',
+    description: 'AI-powered filtering cuts through the noise. Only see news that matters for your trading strategy.',
+  },
+  {
+    icon: 'chart',
+    title: 'Real-Time Analytics',
+    description: 'Track your performance with detailed analytics. Understand what works and optimize your strategy.',
+  },
+  {
+    icon: 'shield',
+    title: 'Secure & Reliable',
+    description: '24/7 uptime with enterprise-grade security. Your API keys are encrypted and never stored on our servers.',
+  }
+]
+
+const stats = [
+  { value: '50ms', label: 'News Latency', icon: 'bolt' },
+  { value: '24/7', label: 'Uptime', icon: 'clock' },
+  { value: '4', label: 'Exchanges', icon: 'exchange' },
+  { value: '1000+', label: 'Active Traders', icon: 'users' },
+]
+---
+
+<section id="features" class="section relative overflow-hidden">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 stagger">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+        Features
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        The Moves You've Been
+        <span class="text-text-tertiary"> Missing</span>. <span class="text-accent">Captured</span>.
+      </h2>
+      <p class="text-text-secondary text-lg">
+        Professional trading tools designed for speed and precision. Everything you need to trade news effectively.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-16">
+      {features.map((feature, index) => (
+        <div class="group p-6 lg:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 card-elevated hover:border-border-accent">
+          <!-- Header with Icon and Title -->
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors bg-bg-elevated group-hover:bg-accent/20">
+              {feature.icon === 'bolt' && (
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              )}
+              {feature.icon === 'click' && (
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                </svg>
+              )}
+              {feature.icon === 'exchange' && (
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                </svg>
+              )}
+              {feature.icon === 'filter' && (
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+              )}
+              {feature.icon === 'chart' && (
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              )}
+              {feature.icon === 'shield' && (
+                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              )}
+            </div>
+            <h3 class="text-lg font-semibold">
+              {feature.title}
+            </h3>
+          </div>
+
+          <!-- Description -->
+          <p class="text-text-secondary text-sm">
+            {feature.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Stats -->
+    <div class="text-center mb-10">
+      <h3 class="text-xl sm:text-2xl md:text-3xl font-bold">
+        Built For <span class="text-accent">Speed</span>. Trusted By <span class="text-accent">Traders</span>.
+      </h3>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      {stats.map((stat) => (
+        <div class="card p-6 flex items-center">
+          <div class="shrink-0 pr-4 border-r border-border">
+            {stat.icon === 'bolt' && (
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            )}
+            {stat.icon === 'clock' && (
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+            {stat.icon === 'exchange' && (
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+            )}
+            {stat.icon === 'users' && (
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            )}
+          </div>
+          <div class="flex-1 text-center">
+            <div class="text-2xl lg:text-3xl font-bold text-text-primary">
+              {stat.value}
+            </div>
+            <div class="text-text-secondary text-sm">{stat.label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a href="#pricing" class="btn btn-primary">
+        Start Trading Smarter
+      </a>
+    </div>
+  </div>
+</section>

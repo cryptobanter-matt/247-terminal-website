@@ -1,0 +1,93 @@
+---
+import LogoCarousel from '../ui/LogoCarousel.astro';
+---
+
+<section id="hero" class="relative min-h-screen flex items-center gradient-hero overflow-hidden">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-accent/5 rounded-full blur-3xl" />
+    <div class="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-info/5 rounded-full blur-3xl" />
+  </div>
+
+  <div class="container relative z-10 pt-24 pb-16">
+    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 lg:items-center">
+      <!-- Content -->
+      <div class="stagger max-w-full overflow-hidden">
+        <!-- Headline -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 uppercase tracking-tight">
+          The New<span class="text-accent">s</span> Era
+          <br />
+          Of Trading
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-lg sm:text-xl text-text-secondary mb-8 max-w-lg">
+          Trade news before it goes viral. Get millisecond-fast news delivery and execute trades across multiple exchanges with a single click.
+        </p>
+
+        <!-- Hero Visual - Shows here on mobile only -->
+        <div class="relative max-w-full mb-8 lg:hidden">
+          <div class="relative rounded-lg overflow-hidden bg-bg-surface border border-accent/40 p-1" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3);">
+            <img
+              src="/images/screenshot.png"
+              alt="247 Terminal - Trading interface with real-time charts and news feed"
+              class="w-full h-auto"
+              loading="eager"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-bg-base/30 to-transparent pointer-events-none" />
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-bg-base/80 backdrop-blur-sm border border-accent/30">
+              <span class="w-2 h-2 rounded-full bg-success animate-pulse" />
+              <span class="text-xs font-medium text-white">Live News Trading</span>
+            </div>
+          </div>
+          <!-- Exchange carousel - mobile only -->
+          <div class="mt-10">
+            <LogoCarousel />
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <a href="#pricing" class="btn btn-primary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 animate-pulse-glow">
+            Get Access Now
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="#features" class="btn btn-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 !hidden lg:!inline-flex">
+            See Features
+          </a>
+        </div>
+
+        <!-- Trust indicators - desktop only -->
+        <div class="mt-10 hidden lg:block">
+          <LogoCarousel />
+        </div>
+      </div>
+
+      <!-- Hero Visual - Shows here on desktop only -->
+      <div class="relative max-w-full self-start hidden lg:block">
+        <div class="relative rounded-lg overflow-hidden bg-bg-surface border border-accent/40 p-1" style="box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.3);">
+          <img
+            src="/images/screenshot.png"
+            alt="247 Terminal - Trading interface with real-time charts and news feed"
+            class="w-full h-auto"
+            loading="eager"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-bg-base/30 to-transparent pointer-events-none" />
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-bg-base/80 backdrop-blur-sm border border-accent/30">
+            <span class="w-2 h-2 rounded-full bg-success animate-pulse" />
+            <span class="text-sm font-medium text-white">Live News Trading</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator - hidden on mobile -->
+  <a href="#comparison" class="hidden sm:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hover:text-accent transition-colors cursor-pointer">
+    <svg class="w-6 h-6 text-text-tertiary hover:text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </a>
+</section>

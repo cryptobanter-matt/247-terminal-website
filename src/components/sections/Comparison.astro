@@ -1,0 +1,102 @@
+---
+const comparison = {
+  without: {
+    title: 'Retail Traders',
+    items: [
+      'See news minutes after it breaks',
+      'Switch between multiple exchange tabs',
+      'Miss opportunities due to slow execution',
+      'Overwhelmed by noise and irrelevant news',
+      'Manual position management',
+      'React to moves instead of anticipate',
+    ]
+  },
+  with: {
+    title: '247 Terminal Users',
+    items: [
+      'Get news in milliseconds',
+      'Trade all exchanges from one screen',
+      'One-click execution across platforms',
+      'AI-filtered relevant news only',
+      'Automated position tracking',
+      'Trade the news before it moves markets',
+    ]
+  }
+}
+---
+
+<section id="comparison" class="section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+        Comparison
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        Stop Trading
+        <span class="text-text-tertiary"> Behind</span>.
+        <br />
+        Start Trading
+        <span class="text-accent"> Ahead</span>.
+      </h2>
+    </div>
+
+    <!-- Comparison Grid -->
+    <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+      {/* Without - Negative design with red effect */}
+      <div class="relative p-6 lg:p-8 rounded-lg bg-bg-surface border border-error/30" style="box-shadow: 0 0 30px rgba(239, 68, 68, 0.1), 0 0 60px rgba(239, 68, 68, 0.05);">
+        <div class="mb-6">
+          <h3 class="text-2xl lg:text-3xl font-bold text-text-secondary">{comparison.without.title}</h3>
+        </div>
+
+        <ul class="space-y-4">
+          {comparison.without.items.map((item) => (
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 bg-error/20 rounded-sm shrink-0 mt-0.5 flex items-center justify-center">
+                <svg class="w-3 h-3 text-error" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <span class="text-text-secondary">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* With - Elevated/glowing design */}
+      <div class="relative p-6 lg:p-8 rounded-lg bg-bg-surface border border-success/40" style="box-shadow: 0 0 30px rgba(34, 197, 94, 0.15), 0 0 60px rgba(34, 197, 94, 0.05);">
+        <!-- Recommended badge -->
+        <div class="absolute -top-3 left-6 px-3 py-1 bg-success text-white text-xs font-semibold rounded-full">
+          Recommended
+        </div>
+
+        <div class="mb-6">
+          <h3 class="text-2xl lg:text-3xl font-bold text-text-primary">{comparison.with.title}</h3>
+        </div>
+
+        <ul class="space-y-4">
+          {comparison.with.items.map((item) => (
+            <li class="flex items-start gap-3">
+              <div class="w-5 h-5 bg-success rounded-sm shrink-0 mt-0.5 flex items-center justify-center">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <span class="text-text-primary">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#pricing" class="btn btn-primary">
+        Join The Winners
+      </a>
+      <a href="#features" class="btn btn-secondary">
+        See How It Works
+      </a>
+    </div>
+  </div>
+</section>

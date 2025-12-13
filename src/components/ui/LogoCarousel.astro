@@ -1,0 +1,99 @@
+---
+// Logo Carousel Component
+// - Infinite horizontal scroll using Ryan Mulligan's technique
+// - Consistent logo heights with hover effects
+---
+
+<div class="marquee-container">
+  <!-- First set of logos -->
+  <div class="marquee-content animate-marquee">
+    <a href="https://www.bybit.com" target="_blank" rel="noopener noreferrer" class="logo-item" aria-label="Visit Bybit">
+      <img src="/images/bybit.svg" alt="Bybit" class="h-6 sm:h-7 w-auto" />
+    </a>
+    <a href="https://www.binance.com" target="_blank" rel="noopener noreferrer" class="logo-item" aria-label="Visit Binance">
+      <img src="/images/binance.svg" alt="Binance" class="h-6 sm:h-7 w-auto" />
+    </a>
+    <a href="https://hyperliquid.xyz" target="_blank" rel="noopener noreferrer" class="logo-item" aria-label="Visit Hyperliquid">
+      <img src="/images/hyperliquid.svg" alt="Hyperliquid" class="h-6 sm:h-7 w-auto" />
+    </a>
+    <a href="https://blofin.com" target="_blank" rel="noopener noreferrer" class="logo-item" aria-label="Visit Blofin">
+      <img src="/images/blofin.svg" alt="Blofin" class="h-6 sm:h-7 w-auto" />
+    </a>
+  </div>
+  <!-- Duplicate set for seamless loop -->
+  <div class="marquee-content animate-marquee" aria-hidden="true">
+    <a href="https://www.bybit.com" target="_blank" rel="noopener noreferrer" class="logo-item" tabindex="-1">
+      <img src="/images/bybit.svg" alt="" class="h-6 sm:h-7 w-auto" />
+    </a>
+    <a href="https://www.binance.com" target="_blank" rel="noopener noreferrer" class="logo-item" tabindex="-1">
+      <img src="/images/binance.svg" alt="" class="h-6 sm:h-7 w-auto" />
+    </a>
+    <a href="https://hyperliquid.xyz" target="_blank" rel="noopener noreferrer" class="logo-item" tabindex="-1">
+      <img src="/images/hyperliquid.svg" alt="" class="h-6 sm:h-7 w-auto" />
+    </a>
+    <a href="https://blofin.com" target="_blank" rel="noopener noreferrer" class="logo-item" tabindex="-1">
+      <img src="/images/blofin.svg" alt="" class="h-6 sm:h-7 w-auto" />
+    </a>
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    --marquee-gap: 2rem;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--marquee-gap);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 100%;
+    gap: var(--marquee-gap);
+  }
+
+  .logo-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .logo-item img {
+    /* Gray color by default */
+    filter: brightness(0) invert(0.45);
+    transition: filter var(--duration-normal) var(--ease-out);
+  }
+
+  .logo-item:hover img {
+    /* Red/accent color on hover - matches #ef4444 */
+    filter: brightness(0) saturate(100%) invert(41%) sepia(95%) saturate(1752%) hue-rotate(336deg) brightness(99%) contrast(93%);
+  }
+
+  /* Pause on hover */
+  .marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+      animation: none;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .marquee-container {
+      --marquee-gap: 3rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .marquee-container {
+      --marquee-gap: 4rem;
+    }
+  }
+</style>
