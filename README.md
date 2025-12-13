@@ -1,43 +1,55 @@
-# Astro Starter Kit: Minimal
+# 247 Terminal Website
 
-```sh
-pnpm create astro@latest -- --template minimal
+Marketing website for 247 Terminal - a professional crypto news trading platform.
+
+## Tech Stack
+
+- **Astro** - Static site generation
+- **Preact** - Interactive components
+- **TailwindCSS v4** - Styling
+- **Docker + Nginx** - Production deployment
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start dev server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview production build
+pnpm preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Docker Deployment
 
-## 🚀 Project Structure
+```bash
+# Build and run with Docker Compose
+docker-compose up -d --build
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+# Site available at http://localhost:3080
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+For Portainer: Use the `docker-compose.yml` file directly.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Project Structure
 
-Any static assets, like images, can be placed in the `public/` directory.
+```
+src/
+├── components/
+│   ├── interactive/   # Preact components (MobileMenu, LogoCarousel)
+│   ├── layout/        # Header, Footer
+│   └── sections/      # Hero, Comparison, Features, Pricing
+├── layouts/           # BaseLayout
+├── pages/             # index, terms
+└── styles/            # global.css
+```
 
-## 🧞 Commands
+## Analytics
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Google Tag Manager: `GTM-MKRKVXRZ`
+- Microsoft Clarity: `ugbk7jisfm`
