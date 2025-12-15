@@ -1,0 +1,57 @@
+---
+const results = [
+  { image: '/images/results/pnl1.webp', alt: 'Trading Result', rotate: '-3deg', scale: '1', x: '0', y: '0' },
+  { image: '/images/results/pnl2.webp', alt: 'Trading Result', rotate: '2deg', scale: '1.05', x: '10px', y: '-15px' },
+  { image: '/images/results/pnl3.webp', alt: 'Trading Result', rotate: '-2deg', scale: '0.95', x: '-5px', y: '10px' },
+  { image: '/images/results/pnl4.webp', alt: 'Trading Result', rotate: '3deg', scale: '1', x: '5px', y: '-10px' },
+  { image: '/images/results/pnl5.webp', alt: 'Trading Result', rotate: '-1deg', scale: '1.02', x: '-10px', y: '5px' },
+  { image: '/images/results/pnl6.webp', alt: 'Trading Result', rotate: '2.5deg', scale: '0.98', x: '8px', y: '8px' },
+]
+---
+
+<section id="results" class="section relative overflow-hidden">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--color-success)_0%,_transparent_70%)] opacity-[0.03]" />
+
+  <div class="container relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-success/10 text-success text-sm font-medium mb-4">
+        Results
+      </span>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        Real Trades.
+        <span class="text-success"> Real Profits.</span>
+      </h2>
+      <p class="text-text-secondary text-lg">
+        Screenshots from traders using 247 Terminal. Catch the pumps before they hit mainstream.
+      </p>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-4">
+      <div class="flex flex-wrap justify-center items-center gap-4 md:gap-0">
+        {results.map((result, index) => (
+          <div
+            class="group relative w-[45%] md:w-[30%] lg:w-[22%] transition-all duration-500 hover:z-20"
+            style={`transform: rotate(${result.rotate}) scale(${result.scale}) translate(${result.x}, ${result.y});`}
+          >
+            <div
+              class="relative rounded-xl overflow-hidden border-2 border-success/30 hover:border-success transition-all duration-300 hover:scale-110 hover:rotate-0"
+              style="box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(34, 197, 94, 0.15);"
+            >
+              <img
+                src={result.image}
+                alt={result.alt}
+                class="w-full h-auto"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-success/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <p class="text-center text-text-tertiary text-sm mt-12">
+      Past performance does not guarantee future results. Trade responsibly.
+    </p>
+  </div>
+</section>
