@@ -101,7 +101,7 @@ export default function MobileMenu({ navLinks }: Props) {
               class="text-lg text-text-secondary hover:text-text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Login
+              Open Terminal
             </a>
             <a
               href="#pricing"
