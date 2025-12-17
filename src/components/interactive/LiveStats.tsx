@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'preact/hooks'
+import { createPortal } from 'preact/compat'
 
 interface LiveStatsProps {
   apiUrl: string
@@ -81,6 +82,8 @@ export default function LiveStats({ apiUrl }: LiveStatsProps) {
   const [sentiment7d, setSentiment7d] = useState<Sentiment | null>(null)
   const [sentiment30d, setSentiment30d] = useState<Sentiment | null>(null)
   const [showTooltip, setShowTooltip] = useState(false)
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
+  const liveRef = useRef<HTMLAnchorElement>(null)
 
   const fetchStats = useCallback(async () => {
     try {
@@ -192,11 +195,21 @@ export default function LiveStats({ apiUrl }: LiveStatsProps) {
         {/* Right - Live + Period toggle */}
         <div class="flex flex-col items-center gap-1 py-4 pl-4 sm:pl-6 pr-3 sm:pr-4 ml-2 border-l border-white/[0.08] hover:bg-white/5 transition-colors rounded-r-lg">
           <a
+            ref={liveRef}
             href={apiUrl}
             target="_blank"
             rel="noopener noreferrer"
             class="relative flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
-            onMouseEnter={() => setShowTooltip(true)}
+            onMouseEnter={() => {
+              if (liveRef.current) {
+                const rect = liveRef.current.getBoundingClientRect()
+                setTooltipPos({
+                  x: rect.left + rect.width / 2,
+                  y: rect.top - 8
+                })
+              }
+              setShowTooltip(true)
+            }}
             onMouseLeave={() => setShowTooltip(false)}
           >
             <span class="relative flex h-2 w-2">
@@ -204,15 +217,26 @@ export default function LiveStats({ apiUrl }: LiveStatsProps) {
               <span class="relative inline-flex rounded-full h-2 w-2 bg-success" />
             </span>
             <span class="text-xs font-medium text-text-tertiary uppercase tracking-wider">Live</span>
-            {showTooltip && (
-              <div class="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1.5 bg-bg-elevated rounded-lg text-xs text-text-secondary whitespace-nowrap z-10"
-                style={{ boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)' }}
-              >
-                Real-time data from 247 Terminal
-                <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-bg-elevated" />
-              </div>
-            )}
           </a>
+          {showTooltip && createPortal(
+            <div
+              class="fixed px-3 py-1.5 rounded-lg text-xs text-white whitespace-nowrap z-[9999] border border-zinc-700 pointer-events-none"
+              style={{
+                left: `${tooltipPos.x}px`,
+                top: `${tooltipPos.y}px`,
+                transform: 'translate(-50%, -100%)',
+                backgroundColor: 'rgb(24, 24, 27)',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.8)'
+              }}
+            >
+              Real-time data from 247 Terminal
+              {/* Arrow border (larger, behind) */}
+              <div class="absolute top-full left-1/2 -translate-x-1/2 border-[5px] border-transparent border-t-zinc-700" />
+              {/* Arrow fill (smaller, in front) */}
+              <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[rgb(24,24,27)] -mt-[1px]" />
+            </div>,
+            document.body
+          )}
 
           {/* Period toggle */}
           <div
