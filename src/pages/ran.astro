@@ -17,7 +17,15 @@ import CheckoutModal from '../components/interactive/CheckoutModal.astro'
   <Results />
   <Comparison />
   <Features />
-  <Pricing />
+  <Pricing
+    annualName="Today's Special"
+    annualPrice={99}
+    annualOriginalPrice={199}
+    annualPeriod="/month"
+    annualDescription="$99/month for first 12 months - Save $1,400!"
+    annualPromoCode="WELCOME"
+    annualCheckoutPlan="monthly"
+  />
   <CTA />
   <CheckoutModal slot="modal" affiliate="runningonfull" />
 </BaseLayout>

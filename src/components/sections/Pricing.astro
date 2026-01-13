@@ -1,4 +1,24 @@
 ---
+interface Props {
+  annualName?: string;
+  annualPromoCode?: string;
+  annualPrice?: number;
+  annualOriginalPrice?: number;
+  annualPeriod?: string;
+  annualDescription?: string;
+  annualCheckoutPlan?: string;
+}
+
+const {
+  annualName = 'Annual',
+  annualPromoCode,
+  annualPrice = 1799,
+  annualOriginalPrice = 2388,
+  annualPeriod = '/year',
+  annualDescription = 'Save $589 compared to monthly',
+  annualCheckoutPlan = 'yearly'
+} = Astro.props;
+
 const plans = [
   {
     name: 'Monthly',
@@ -21,12 +41,12 @@ const plans = [
     promoCode: 'PHASE2',
   },
   {
-    name: 'Annual',
+    name: annualName,
     phase: 'Phase 2',
-    price: 1799,
-    originalPrice: 2388,
-    period: '/year',
-    description: 'Save $589 compared to monthly',
+    price: annualPrice,
+    originalPrice: annualOriginalPrice,
+    period: annualPeriod,
+    description: annualDescription,
     features: [
       'Everything in Monthly',
       'Priority support',
@@ -34,8 +54,9 @@ const plans = [
       'Locked-in pricing',
     ],
     cta: 'Save Now',
-    checkoutPlan: 'yearly',
+    checkoutPlan: annualCheckoutPlan,
     popular: true,
+    promoCode: annualPromoCode,
   },
   {
     name: 'Phase 3',
